@@ -12,8 +12,17 @@ ora.toLocaleTimeString("it-IT");
 
 }
 
+function aggiornaData(){
+
+let oggi=new Date();
+
+document.getElementById("date").innerHTML =
+oggi.toLocaleDateString('it-IT');
+
+}
 
 setInterval(aggiornaOrologio,1000);
+setInterval(aggiornaData,1000);
 
 
 
