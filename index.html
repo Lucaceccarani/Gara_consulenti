@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -9,70 +10,104 @@
 
 <style>
 
-html,body{
-
-margin:0;
-padding:0;
-width:100%;
-height:100%;
-overflow:hidden;
-
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
 }
 
-iframe{
+/* Contenitore degli iframe */
+#contenitore {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
-width:100%;
-height:100%;
-border:0;
+/* I due schermi sono sovrapposti */
+.schermo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 
+    opacity: 0;
+
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Schermo visibile */
+.schermo.attivo {
+    opacity: 1;
 }
 
 </style>
 
-
 </head>
-
 
 <body>
 
+<div id="contenitore">
 
-<iframe id="schermo" src="mensile.html"></iframe>
+<iframe id="schermo1" class="schermo attivo" src="mensile.html"></iframe>
 
+<iframe id="schermo2" class="schermo" src=""></iframe>
 
+</div>
 
 <script>
 
+const pagine = [
+    "mensile.html",
+    "podio_mensile.html",
+    "annuale.html",
+    "podio_annuale.html"
+];
 
-let mensile = true;
+let indice = 0;
 
-
-setInterval(()=>{
-
-
-const frame=document.getElementById("schermo");
-
-
-if(mensile){
-
-frame.src="annuale.html";
-
-}else{
-
-frame.src="mensile.html";
-
-}
+let schermoAttivo = document.getElementById("schermo1");
+let schermoInattivo = document.getElementById("schermo2");
 
 
-mensile=!mensile;
+setInterval(() => {
+
+    // Calcola la pagina successiva
+    indice++;
+
+    if (indice >= pagine.length) {
+        indice = 0;
+    }
+
+    // Carica la pagina successiva nello schermo nascosto
+    schermoInattivo.src = pagine[indice];
 
 
+    // Quando la pagina è completamente caricata
+    schermoInattivo.onload = () => {
 
-},15000);
+        // Dissolvenza in entrata
+        schermoInattivo.classList.add("attivo");
+
+        // Dissolvenza in uscita
+        schermoAttivo.classList.remove("attivo");
 
 
+        // Scambia i due iframe
+        const temp = schermoAttivo;
+
+        schermoAttivo = schermoInattivo;
+        schermoInattivo = temp;
+
+    };
+
+}, 15000);
 
 </script>
-
 
 </body>
 

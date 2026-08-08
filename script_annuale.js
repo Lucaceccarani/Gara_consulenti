@@ -1,5 +1,4 @@
-const URL_DATI =
-"https://script.google.com/macros/s/AKfycbyJSe7-dKwfgLvjHC6OD05pstGI1bnSahPAzWj87D-BV9mQP0-g5IHcu_X5ybniLOLymA/exec";
+const URL_DATI = "https://script.google.com/macros/s/AKfycbyJSe7-dKwfgLvjHC6OD05pstGI1bnSahPAzWj87D-BV9mQP0-g5IHcu_X5ybniLOLymA/exec";
 
 
 
