@@ -1,6 +1,11 @@
-const URL_DATI = "https://script.google.com/macros/s/AKfycbyJSe7-dKwfgLvjHC6OD05pstGI1bnSahPAzWj87D-BV9mQP0-g5IHcu_X5ybniLOLymA/exec";
+const URL_DATI = URL_API + "?periodo=anno"; // URL_API è in config.js
 
 
+
+// Arrotonda a max 2 decimali (evita numeri tipo 16.700000000000003)
+function fmt(n){
+    return (Math.round((Number(n) || 0) * 100) / 100).toLocaleString("it-IT", {maximumFractionDigits: 2});
+}
 
 function aggiornaOrologio(){
 
@@ -61,7 +66,7 @@ ${c.consulente}
 
 
 <div class="punti">
-${c.caselle}
+${fmt(c.caselle)}
 </div>
 
 
@@ -100,25 +105,25 @@ let attivita = "";
 
 attivita += `
 <span class="badge verde">
-🟩 ${c.punti}x
+🟩 ${fmt(c.punti)}x
 </span>
 `;
 
 attivita += `
 <span class="badge arancio">
-🟧 ${c.idv}x
+🟧 ${fmt(c.idv)}x
 </span>
 `;
 
 attivita += `
 <span class="badge giallo">
-🟨 ${c.ida}x
+🟨 ${fmt(c.ida)}x
 </span>
 `;
 
 attivita += `
 <span class="badge blu">
-🟦 ${c.ribassi}x
+🟦 ${fmt(c.ribassi)}x
 </span>
 `;
 
@@ -133,7 +138,7 @@ tabella.innerHTML+=`
 
 <td>${c.consulente}</td>
 
-<td>${c.caselle}</td>
+<td>${fmt(c.caselle)}</td>
 
 <td class="attivita">${attivita}</td>
 

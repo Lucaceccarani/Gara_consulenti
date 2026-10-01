@@ -1,0 +1,216 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+min-height:100%;
+font-family:'Poppins',sans-serif;
+background:#0b1220;
+color:white;
+}
+
+.background{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top left,#1b3a6d 0%,transparent 35%),
+radial-gradient(circle at bottom right,#154734 0%,transparent 30%),
+linear-gradient(135deg,#09111f,#16243d,#0b1220);
+z-index:-1;
+}
+
+main{
+max-width:520px;
+margin:0 auto;
+padding:24px 18px 40px;
+}
+
+.logo{
+font-size:20px;
+font-weight:800;
+letter-spacing:2px;
+text-align:center;
+color:#bfc9d8;
+}
+
+h1{
+font-size:30px;
+font-weight:800;
+text-align:center;
+margin:6px 0 22px;
+}
+
+label{
+display:block;
+font-size:15px;
+font-weight:600;
+color:#bfc9d8;
+margin:14px 0 6px;
+}
+
+select,input[type=password],input[type=number],input[type=text]{
+width:100%;
+padding:14px 16px;
+font:inherit;
+font-size:18px;
+color:white;
+background:rgba(255,255,255,.08);
+border:2px solid rgba(255,255,255,.15);
+border-radius:14px;
+}
+
+select option{
+color:#111;
+}
+
+.ricorda{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:400;
+font-size:14px;
+}
+
+.ricorda input{
+width:18px;
+height:18px;
+}
+
+.bottoni{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin-top:26px;
+}
+
+.tipo{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:6px;
+min-height:130px;
+padding:12px;
+font:inherit;
+font-size:17px;
+font-weight:700;
+color:white;
+border:0;
+border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+cursor:pointer;
+}
+
+.tipo .emoji{
+font-size:38px;
+}
+
+.tipo:active{
+transform:scale(.97);
+}
+
+.tipo.verde{background:#22c55e;}
+.tipo.arancio{background:#ef6f44;}
+.tipo.giallo{background:#eab308;color:#111;}
+.tipo.blu{background:#3b82f6;}
+
+#messaggio{
+margin-top:22px;
+min-height:28px;
+text-align:center;
+font-size:18px;
+font-weight:600;
+}
+
+#messaggio.ok{color:#4ade80;}
+#messaggio.errore{color:#f87171;}
+
+.annulla{
+display:block;
+margin:14px auto 0;
+padding:12px 20px;
+font:inherit;
+font-size:16px;
+font-weight:600;
+color:white;
+background:rgba(255,255,255,.1);
+border:2px solid rgba(255,255,255,.2);
+border-radius:14px;
+}
+
+.annulla[hidden]{display:none;}
+
+/* Finestra di conferma */
+
+.overlay{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:18px;
+background:rgba(0,0,0,.7);
+}
+
+.overlay[hidden]{display:none;}
+
+.finestra{
+width:100%;
+max-width:420px;
+padding:24px;
+background:#16243d;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,.6);
+}
+
+.finestra h2{
+font-size:22px;
+text-align:center;
+}
+
+.scelta{
+display:flex;
+gap:10px;
+}
+
+.scelta button{
+flex:1;
+padding:14px;
+font:inherit;
+font-size:20px;
+font-weight:700;
+color:white;
+background:rgba(255,255,255,.08);
+border:2px solid rgba(255,255,255,.15);
+border-radius:14px;
+}
+
+.scelta button.attiva{
+background:#3b82f6;
+border-color:#3b82f6;
+}
+
+.azioni{
+display:flex;
+gap:10px;
+margin-top:22px;
+}
+
+.azioni button{
+flex:1;
+padding:14px;
+font:inherit;
+font-size:18px;
+font-weight:700;
+border:0;
+border-radius:14px;
+}
+
+.primario{background:#22c55e;color:white;}
+.secondario{background:rgba(255,255,255,.12);color:white;}
+
+button:disabled{
+opacity:.5;
+}

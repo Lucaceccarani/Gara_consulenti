@@ -1,4 +1,9 @@
-const URL_DATI = "https://script.google.com/macros/s/AKfycbyJSe7-dKwfgLvjHC6OD05pstGI1bnSahPAzWj87D-BV9mQP0-g5IHcu_X5ybniLOLymA/exec";
+const URL_DATI = URL_API + "?periodo=anno"; // URL_API è in config.js
+
+// Arrotonda a max 2 decimali (evita numeri tipo 16.700000000000003)
+function fmt(n){
+    return (Math.round((Number(n) || 0) * 100) / 100).toLocaleString("it-IT", {maximumFractionDigits: 2});
+}
 
 // ==============================
 // OROLOGIO
@@ -81,7 +86,7 @@ fetch(URL_DATI)
             primiTre[0].consulente;
 
         document.getElementById("first-points").textContent =
-            primiTre[0].caselle ?? 0;
+            fmt(primiTre[0].caselle);
     }
 
 
@@ -95,7 +100,7 @@ fetch(URL_DATI)
             primiTre[1].consulente;
 
         document.getElementById("second-points").textContent =
-            primiTre[1].caselle ?? 0;
+            fmt(primiTre[1].caselle);
     }
 
 
@@ -109,7 +114,7 @@ fetch(URL_DATI)
             primiTre[2].consulente;
 
         document.getElementById("third-points").textContent =
-            primiTre[2].caselle ?? 0;
+            fmt(primiTre[2].caselle);
     }
 
 

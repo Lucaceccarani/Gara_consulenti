@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Super Immobiliare - Segna attività</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="segna.css">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<main>
+
+    <div class="logo">SUPER IMMOBILIARE</div>
+    <h1>🏆 Segna attività</h1>
+
+    <label for="consulente">Chi sei?</label>
+    <select id="consulente">
+        <option value="">Caricamento…</option>
+    </select>
+
+    <label for="pin">Il tuo PIN</label>
+    <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN personale">
+
+    <label class="ricorda">
+        <input id="ricorda" type="checkbox" checked>
+        Ricorda su questo telefono
+    </label>
+
+    <div class="bottoni">
+        <button class="tipo verde" data-tipo="punti">
+            <span class="emoji">🟩</span>
+            <span class="nome">Punti</span>
+        </button>
+        <button class="tipo arancio" data-tipo="idv">
+            <span class="emoji">🟧</span>
+            <span class="nome">Incarico di Vendita</span>
+        </button>
+        <button class="tipo giallo" data-tipo="ida">
+            <span class="emoji">🟨</span>
+            <span class="nome">Incarico di Acquisto</span>
+        </button>
+        <button class="tipo blu" data-tipo="ribassi">
+            <span class="emoji">🟦</span>
+            <span class="nome">Ribasso</span>
+        </button>
+    </div>
+
+    <div id="messaggio" role="status"></div>
+
+    <button id="annulla" class="annulla" hidden>↩️ Annulla ultima segnalazione</button>
+
+</main>
+
+<!-- Finestra di conferma -->
+<div id="conferma" class="overlay" hidden>
+    <div class="finestra">
+        <h2 id="conferma-titolo"></h2>
+
+        <label for="cliente">Nome del cliente</label>
+        <input id="cliente" type="text" maxlength="100" autocomplete="off" placeholder="es. Mario Rossi">
+
+        <div id="campo-importo" hidden>
+            <label for="importo">Importo (€)</label>
+            <input id="importo" type="number" inputmode="decimal" min="0" step="any" placeholder="es. 4500">
+        </div>
+
+        <div id="campo-quantita" hidden>
+            <label>Quantità</label>
+            <div class="scelta">
+                <button type="button" data-q="1" class="attiva">1</button>
+                <button type="button" data-q="0.5">0,5</button>
+            </div>
+        </div>
+
+        <div class="azioni">
+            <button id="conferma-no" class="secondario">Indietro</button>
+            <button id="conferma-si" class="primario">Conferma</button>
+        </div>
+    </div>
+</div>
+
+<script src="config.js"></script>
+<script src="segna.js"></script>
+
+</body>
+
+</html>
