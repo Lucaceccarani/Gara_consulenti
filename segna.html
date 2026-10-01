@@ -8,7 +8,7 @@
 
 <title>Super Immobiliare - Segna attività</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="segna.css">
 
@@ -16,50 +16,77 @@
 
 <body>
 
-<div class="background"></div>
+<header class="testata">
+
+    <!-- Per mostrare il logo basta salvare il file come "logo.png" nella cartella del sito.
+         Finché non c'è, compare il nome scritto. -->
+    <img class="logo-img" src="logo.png" alt="Super Immobiliare"
+         onerror="this.remove(); document.getElementById('logo-testo').hidden = false;">
+    <div id="logo-testo" class="logo-testo" hidden>SUPER IMMOBILIARE</div>
+
+</header>
 
 <main>
 
-    <div class="logo">SUPER IMMOBILIARE</div>
-    <h1>🏆 Segna attività</h1>
+    <div class="intro">
+        <h1>Segna attività</h1>
+        <p>Scegli il tuo nome, inserisci il PIN e tocca l'attività da registrare.</p>
+    </div>
 
-    <label for="consulente">Chi sei?</label>
-    <select id="consulente">
-        <option value="">Caricamento…</option>
-    </select>
+    <section class="riquadro">
 
-    <label for="pin">Il tuo PIN</label>
-    <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN personale">
+        <label for="consulente">Chi sei?</label>
+        <select id="consulente">
+            <option value="">Caricamento…</option>
+        </select>
 
-    <label class="ricorda">
-        <input id="ricorda" type="checkbox" checked>
-        Ricorda su questo telefono
-    </label>
+        <label for="pin">Il tuo PIN</label>
+        <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN personale">
 
-    <div class="bottoni">
+        <label class="ricorda">
+            <input id="ricorda" type="checkbox" checked>
+            Ricorda su questo dispositivo
+        </label>
+
+    </section>
+
+    <section class="bottoni" aria-label="Attività">
+
         <button class="tipo verde" data-tipo="punti">
-            <span class="emoji">🟩</span>
+            <span class="icona">€</span>
             <span class="nome">Punti</span>
         </button>
+
         <button class="tipo arancio" data-tipo="idv">
-            <span class="emoji">🟧</span>
+            <span class="icona">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+            </span>
             <span class="nome">Incarico di Vendita</span>
         </button>
+
         <button class="tipo giallo" data-tipo="ida">
-            <span class="emoji">🟨</span>
+            <span class="icona">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/></svg>
+            </span>
             <span class="nome">Incarico di Acquisto</span>
         </button>
+
         <button class="tipo blu" data-tipo="ribassi">
-            <span class="emoji">🟦</span>
+            <span class="icona">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17l-8.5-8.5-5 5L2 7"/><path d="M16 17h6v-6"/></svg>
+            </span>
             <span class="nome">Ribasso</span>
         </button>
-    </div>
+
+    </section>
 
     <div id="messaggio" role="status"></div>
 
     <button id="annulla" class="annulla" hidden>↩️ Annulla ultima segnalazione</button>
 
 </main>
+
+<footer class="piede">Super Immobiliare · Gara Consulenti</footer>
 
 <!-- Finestra di conferma -->
 <div id="conferma" class="overlay" hidden>
